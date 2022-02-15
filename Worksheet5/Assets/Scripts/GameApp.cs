@@ -6,59 +6,67 @@ using UnityEngine.SceneManagement;
 
 public class GameApp : Singleton<GameApp>
 {
-  private bool mPause = false;
+    public AudioSource mAudioSource;
+    public AudioClip mButtonClick;
 
-  /// <summary>
-  /// Function to pause the game.
-  /// I have refactored the original property and 
-  /// instead imlemented this function.
-  /// </summary>
-  /// <param name="flag"></param>
-  public void PauseGame(bool flag)
-  {
-    mPause = flag;
-    //mOnPause?.Invoke(GamePaused);
-    if (mPause)
+    private bool mPause = false;
+
+    /// <summary>
+    /// Function to pause the game.
+    /// I have refactored the original property and 
+    /// instead imlemented this function.
+    /// </summary>
+    /// <param name="flag"></param>
+    public void PauseGame(bool flag)
     {
-      Time.timeScale = 0;
+        mPause = flag;
+        //mOnPause?.Invoke(GamePaused);
+        if (mPause)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
-    else
+
+    //public bool GamePaused
+    //{
+    //  get { return mPause; }
+    //  set
+    //  {
+    //    mPause = value;
+    //    //mOnPause?.Invoke(GamePaused);
+    //    if (mPause)
+    //    {
+    //      Time.timeScale = 0;
+    //    }
+    //    else
+    //    {
+    //      Time.timeScale = 1;
+    //    }
+    //  }
+    //}
+
+    // Start is called before the first frame update
+
+    void Start()
     {
-      Time.timeScale = 1;
+        SceneManager.LoadScene("Menu");
     }
-  }
 
-  //public bool GamePaused
-  //{
-  //  get { return mPause; }
-  //  set
-  //  {
-  //    mPause = value;
-  //    //mOnPause?.Invoke(GamePaused);
-  //    if (mPause)
-  //    {
-  //      Time.timeScale = 0;
-  //    }
-  //    else
-  //    {
-  //      Time.timeScale = 1;
-  //    }
-  //  }
-  //}
-
-  // Start is called before the first frame update
-
-  void Start()
-  {
-    SceneManager.LoadScene("Menu");
-  }
-
-  void Update()
-  {
-    if (Input.GetKeyDown(KeyCode.Escape))
+    void Update()
     {
-      PauseGame(!mPause);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame(!mPause);
+        }
     }
-  }
 
+    public void btnClick()
+    {
+        mAudioSource.clip = mButtonClick;
+        mAudioSource.Play();
+    }
 }
