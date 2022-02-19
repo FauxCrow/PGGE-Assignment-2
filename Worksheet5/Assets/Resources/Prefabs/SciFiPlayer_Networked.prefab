@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5397220977396096667}
   - component: {fileID: 1727111088525907035}
   - component: {fileID: 1727111088525907034}
+  - component: {fileID: 4812231038288931466}
   m_Layer: 8
   m_Name: SciFiPlayer_Networked
   m_TagString: Player
@@ -95,11 +96,6 @@ MonoBehaviour:
   mBulletsInMagazine: 40
   mAttackButtons: 000000
   mGunTransform: {fileID: 2349599301418915747}
-  mPlayerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  mCanvas: {fileID: 5397220978664074292}
-  mCrossHair: {fileID: 5397220978303428554}
   mBulletPrefab: {fileID: 1794198430189847228, guid: d8d3ec337bac0704cbfca3cb3fdcb904, type: 3}
   mBulletSpeed: 10
   RoundsPerSecond: 0a0000000800000002000000
@@ -143,6 +139,24 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &4812231038288931466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397220977396096671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fefb3ac8e287494ca97c2c61ce14f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mGunTransform: {fileID: 2349599301418915747}
+  mPlayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  mCanvas: {fileID: 5397220978664074292}
+  mCrossHair: {fileID: 5397220978303428554}
 --- !u!1 &5397220978303428553
 GameObject:
   m_ObjectHideFlags: 0
